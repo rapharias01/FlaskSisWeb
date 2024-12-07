@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+    <div class="card shadow">
+        <div class="card-body">
+            <h1 class="text-center card-title">Selecione uma Marca</h1>
+            <form action="/models" method="POST" class="mt-4">
+                <input type="hidden" name="vehicle_type" value="{{ vehicle_type }}">
+                <div class="mb-3">
+                    <label for="brand_id" class="form-label">Marcas disponíveis</label>
+                    <select class="form-select" name="brand_id" id="brand_id" required>
+                        {% for brand in brands %}
+                            <option value="{{ brand.codigo }}">{{ brand.nome }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Continuar</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

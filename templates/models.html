@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+    <div class="card shadow">
+        <div class="card-body">
+            <h1 class="text-center card-title">Selecione um Modelo</h1>
+            <form action="/years" method="POST" class="mt-4">
+                <input type="hidden" name="vehicle_type" value="{{ vehicle_type }}">
+                <input type="hidden" name="brand_id" value="{{ brand_id }}">
+                <div class="mb-3">
+                    <label for="model_id" class="form-label">Modelos disponíveis</label>
+                    <select class="form-select" name="model_id" id="model_id" required>
+                        {% for model in models %}
+                            <option value="{{ model.codigo }}">{{ model.nome }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Continuar</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

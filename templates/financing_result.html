@@ -1,0 +1,24 @@
+<!-- templates/financing_result.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado do Financiamento</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+    <div class="card shadow">
+        <div class="card-body">
+            <h1 class="text-center card-title">Resultado do Financiamento</h1>
+            <p><strong>Valor do Veículo:</strong> {{ vehicle_value }}</p>
+            <p><strong>Taxa de Juros Anual:</strong> {{ interest_rate }}%</p>
+            <p><strong>Número de Parcelas:</strong> {{ months }}</p>
+            <p><strong>Valor da Parcela Mensal:</strong> {{ monthly_payment }}</p>
+            <a href="/" class="btn btn-info">Voltar</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

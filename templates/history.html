@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Consultas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="card shadow">
+            <div class="card-body">
+                <h1 class="text-center">Histórico de Consultas</h1>
+                <table class="table table-striped mt-4">
+                    <thead>
+                        <tr>
+                            <th>Tipo</th>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Ano</th>
+                            <th>Preço</th>
+                            <th>Combustível</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for query in history %}
+                        <tr>
+                            <td>
+                                {% if query.vehicle_type == 'carros' %}Carro
+                                {% elif query.vehicle_type == 'motos' %}Moto
+                                {% elif query.vehicle_type == 'caminhoes' %}Caminhão
+                                {% else %}Outro
+                                {% endif %}
+                            </td>
+                            <td>{{ query.brand }}</td>
+                            <td>{{ query.model }}</td>
+                            <td>{{ query.year if query.year else 'Ano não informado' }}</td>
+                            <td>{{ query.price if query.price else 'Não encontrado' }}</td>
+                            <td>{{ query.fuel if query.fuel else 'Não informado' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <a href="/" class="btn btn-secondary mt-4">Início</a>
+            </div>
+        </div>
+        
+    </div>
+</body>
+
+</html>

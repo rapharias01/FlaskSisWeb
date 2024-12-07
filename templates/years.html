@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container my-5">
+    <div class="card shadow">
+        <div class="card-body">
+            <h1 class="text-center card-title">Selecione o Ano</h1>
+            <form action="/price" method="POST" class="mt-4">
+                <input type="hidden" name="vehicle_type" value="{{ vehicle_type }}">
+                <input type="hidden" name="brand_id" value="{{ brand_id }}">
+                <input type="hidden" name="model_id" value="{{ model_id }}">
+                <div class="mb-3">
+                    <label for="year_id" class="form-label">Anos disponíveis</label>
+                    <select class="form-select" name="year_id" id="year_id" required>
+                        {% for year in years %}
+                            <option value="{{ year.codigo }}">{{ year.nome }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Continuar</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

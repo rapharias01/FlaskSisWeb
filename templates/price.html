@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço do Veículo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container my-5">
+        <div class="card shadow">
+            <div class="card-body">
+                <h1 class="text-center">Detalhes do Veículo</h1>
+                <table class="table table-striped mt-4">
+                    <thead>
+                        <tr>
+                            <th>Marca</th>
+                            <th>Modelo</th>
+                            <th>Ano</th>
+                            <th>Preço</th>
+                            <th>Combustível</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if vehicle_price %}
+                        <tr>
+                            <td>{{ vehicle_price.brand }}</td>
+                            <td>{{ vehicle_price.model }}</td>
+                            <td>{{ vehicle_price.year }}</td>
+                            <td>{{ vehicle_price.price if vehicle_price.price else 'Não encontrado' }}</td>
+                            <td>{{ vehicle_price.fuel }}</td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="5" class="text-center">Dados não encontrados</td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+                <div class="col-md-12 text-center">
+                    <h2>Gráfico de Preços ao Longo dos Anos</h2>
+                    <img src="data:image/png;base64,{{ price_graph }}" alt="Gráfico de Preços" class="img-fluid">
+                </div>
+
+                <a href="/" class="btn btn-secondary mt-4">Início</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
